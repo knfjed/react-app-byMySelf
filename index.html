@@ -15,30 +15,27 @@
     <script type="text/babel">
       let dom = document.querySelector("#root");
 
-      const p = {
-        fontsize: "20pt",
+      const msg = {
+        fontSize: "20pt",
+        fontWeight: "bold",
         padding: "10px",
-        backgroundColor: "blue",
         color: "white",
-        cursor: "pointer",
+        backgroundColor: "darkblue",
       };
 
-      var counter = 0;
+      // 関数コンポーネント
+      function Welcome(props) {
+        return <p style={msg}>Hello React!!</p>;
+      }
 
-      let doAction = (event) => {
-        counter++;
+      // 表示するJSX
+      let el = (
+        <div>
+          <Welcome />
+        </div>
+      );
 
-        let el = (
-          <div>
-            <p onClick={doAction} style={p}>
-              count: {counter}
-            </p>
-          </div>
-        );
-        ReactDOM.render(el, dom);
-      };
-
-      doAction();
+      ReactDOM.render(el, dom);
     </script>
   </body>
 </html>
